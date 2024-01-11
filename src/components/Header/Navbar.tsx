@@ -1,12 +1,12 @@
 import styled from "styled-components"
 import {
   FlexCol, FlexRow, FlexRowAc,
-  IconCont, Tsixteen, Ttiny, SpanFlexCol, AvatarC, SpanFlexAcRow
+  IconCont, Tsixteen, Ttiny, SpanFlexCol,
+   AvatarC, SpanFlexAcRow
 } from "../Global"
-import { AngleDown, BurgerMenu, Heart, ProfileA, RestoLocation, Search } from "../../assets"
+import { AngleDown, BurgerMenu, Heart,
+   ProfileA, RestoLocation } from "../../assets"
 import { SearchBar } from "../ui/SearchBar"
-import { useState } from "react"
-import { useSpring, animated } from '@react-spring/web'
 
 
 
@@ -62,14 +62,6 @@ const SearcCont = styled(SpanFlexAcRow)`
 
 export const Navbar = () => {
 
-  const [searchFocused,setSearchFocused] = useState(false)
-  const [props, api] = useSpring(
-    () => ({
-      from: { opacity: 0 },
-      to: { opacity: 1 },
-    }),
-    []
-  )
 
 
   return (
