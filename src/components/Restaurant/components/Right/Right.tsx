@@ -8,30 +8,30 @@ import { useSpring, animated } from "@react-spring/web"
 
 const Wrap = styled(FlexCol)`
     margin-top: 32px;
-    justify-content:space-evenly;
-    /* background-color: red; */
+    justify-content:start;
     @media screen and (max-width:1206px){
-        /* max-width: 40%; */
+        margin-top: calc(-100px + 10vw);
+    }
+
+    @media screen and (max-width:906px){
         margin-top: 48px;
     }
+    
 
 `
 
 
 const Imagec = styled.img`
     width: 100%;
-    height:100%;
-    /* flex:1; */
 `
 const TCont = styled.div`
-    flex:2;
 `
 
 
 const Trail: React.FC<{ open: boolean, children: ReactNode }> = ({ open, children }) => {
     const items = React.Children.toArray(children)
     const trail = useTrail(items.length, {
-        config: { mass: 5, tension: 2000, friction: 20 },
+        config: { mass: 50, tension: 2000, friction: 200 },
         opacity: open ? 1 : 0,
         x: open ? 0 : 20,
         height: open ? 110 : 0,
@@ -57,8 +57,8 @@ export const Right = () => {
     }, [])
 
     const RightSpring = useSpring({
-        from: { transform: "scale(.7)", filter: "blur(30px)", },
-        to: { transform: "scale(1)", filter: "blur(0px)", },
+        from: {  filter: "blur(30px)", },
+        to: {   filter: "blur(0px)", },
         duration: { transform: 300, filter: 6000 },
         delay: 1200,
         config: {

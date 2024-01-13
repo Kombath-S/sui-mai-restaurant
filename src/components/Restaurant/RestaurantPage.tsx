@@ -5,7 +5,6 @@ import { Right } from "./components/Right"
 
 const Wrap = styled(FlexRow)`
   gap: 24px;
-
   @media screen and (max-width:906px) {
       flex-direction:column;
   }

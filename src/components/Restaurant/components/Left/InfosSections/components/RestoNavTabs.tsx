@@ -2,8 +2,11 @@ import styled from "styled-components"
 import { FlexCol, FlexRowAc, IsLink, NavCumbLink, PortLigaText } from "../../../../../Global"
 import { black, darkRed, softPink, } from "../../../../../../utils/colors"
 import { useMediaQuery } from "react-responsive"
-import { useTrail, animated, easings, useSpring } from "@react-spring/web";
+import { useTrail, animated, easings, useSpring, config } from "@react-spring/web";
 import { useState } from "react";
+
+
+
 const Wrapper = styled(FlexRowAc)`
     gap: 20px;
     margin-top: 64px;
@@ -22,10 +25,10 @@ const Bar = styled('div')`
     display:flex;
 `
 const Track = styled.span`
-    /* position:absolute; */
-    width: 40px;
-    height: 320px;
-    /* content: ""; */
+    position:absolute;
+    width: 6px;
+    height: 32px;
+    content: "";
     background: red;
 `
 
@@ -78,19 +81,34 @@ export const RestoNavTabs = () => {
     })
 
     const [isActive, setIsactive] = useState(0)
+    const [indicatorPosition, setIndicatorPosition] = useState(0);
 
-    const TrackTrail = useSpring({
-        from: {y: -400,x: -200},
-        to: {y: -400,x: -200},
-    })
+
+    const indicatorAnimation = useSpring({
+        y: `${indicatorPosition * 34}px`,
+        config: config.slow,
+    });
+
+
+    const goToItem = (newIndex: number) => {
+        setIndicatorPosition(newIndex);
+    };
+
+    const hanleChangeTab = (index: number) => {
+        setIsactive(index)
+        goToItem(index)
+    }
 
     return (
         <Wrapper>
-            <Bar>
-                <animated.span style={TrackTrail}>
-                    <Track className="track" />
-                </animated.span>
-            </Bar>
+            {
+                !isMobile &&
+                <Bar>
+                    <animated.span style={{ ...indicatorAnimation }}>
+                        <Track className="track" />
+                    </animated.span>
+                </Bar>
+            }
 
             <Tabs>
                 {
@@ -99,7 +117,7 @@ export const RestoNavTabs = () => {
                             <SpanLink
                                 href={TabLinks[index][1]}
                                 className={isActive == index ? "activeLink" : ""}
-                                onClick={() => setIsactive(index)}
+                                onClick={() => hanleChangeTab(index)}
                             >{TabLinks[index][0]}</SpanLink>
                         </animated.span>
                     ))

@@ -44,7 +44,10 @@ const ReviewBtn = styled(ReactionBtn)`
   
 `
 
-export const LikesBtn = ({ num = 124 }: IBtnProps) => {
+export const LikesBtn = ({ num}: IBtnProps) => {
+  if(!num){
+    num = 32
+  }
   return (
     <LikeBtn>
       <IconCont src={Heart} />
@@ -54,7 +57,10 @@ export const LikesBtn = ({ num = 124 }: IBtnProps) => {
 
 
 
-export const StarBtn = ({ num = 124 }: IBtnProps) => {
+export const StarBtn = ({ num }: IBtnProps) => {
+  if (!num) {
+    num = 32
+  }
   return (
     <Starbtn>
       <IconCont src={Star} style={{ width: 18 }} />
@@ -63,7 +69,10 @@ export const StarBtn = ({ num = 124 }: IBtnProps) => {
   )
 }
 
-export const ReviewsBtn = ({ num = 124 }: IBtnProps) => {
+export const ReviewsBtn = ({ num  }: IBtnProps) => {
+  if (!num) {
+    num = 32
+  }
   return (
     <ReviewBtn>
       <IconCont src={Message} style={{ width: 18 }} />
