@@ -1,7 +1,9 @@
 import styled from "styled-components"
-import { FlexCol, FlexRowAc, NavCumbLink, Tfouteen } from "../../../../../Global"
-import { softPink, } from "../../../../../../utils/colors"
-
+import { FlexCol, FlexRowAc, IsLink, NavCumbLink, PortLigaText } from "../../../../../Global"
+import { black, darkRed, softPink, } from "../../../../../../utils/colors"
+import { useMediaQuery } from "react-responsive"
+import { useTrail, animated, easings, useSpring } from "@react-spring/web";
+import { useState } from "react";
 const Wrapper = styled(FlexRowAc)`
     gap: 20px;
     margin-top: 64px;
@@ -11,18 +13,21 @@ const Wrapper = styled(FlexRowAc)`
     }
 `
 
-const Bar = styled('span')`
+const Bar = styled('div')`
     width: 4px;
     height: 100%;
     background: ${softPink};
     border-radius: 8px;
     position:relative;
+    display:flex;
 `
-// const Tracker = styled('span')`
-//    height: 30px;
-//    width: 6px;
-//    background: red;
-// `
+const Track = styled.span`
+    /* position:absolute; */
+    width: 40px;
+    height: 320px;
+    /* content: ""; */
+    background: red;
+`
 
 const Tabs = styled(FlexCol)`
     gap: 20px;
@@ -46,24 +51,59 @@ const TabLinks = [
     ["Similar", "#"]
 ]
 
+const TablinksItems = TabLinks.map(el => (
+    <Tab key={el[0]} href={el[1]}>
+        <PortLigaText size="14px">{el[0]}</PortLigaText>
+    </Tab>
+))
+const SpanLink = styled(IsLink)`
+    color: ${black};
+    &.activeLink {
+        color:${darkRed}
+    }
+`
 
 export const RestoNavTabs = () => {
+    const isMobile = useMediaQuery({ maxWidth: 906 })
+
+    const Tagstrail = useTrail(TablinksItems.length, {
+        from: { opacity: 0, transform: isMobile ? "translateX(40px)" : "translateY(20px)" },
+        to: { opacity: 1, transform: isMobile ? "translateX(0px)" : "translateY(0px)" },
+        delay: 800,
+        config: {
+            duration: 200,
+            delay: (d: number) => d + 100,
+            easing: easings.easeOutSine,
+        },
+    })
+
+    const [isActive, setIsactive] = useState(0)
+
+    const TrackTrail = useSpring({
+        from: {y: -400,x: -200},
+        to: {y: -400,x: -200},
+    })
+
     return (
         <Wrapper>
             <Bar>
-
-                {/* <Tracker></Tracker> */}
+                <animated.span style={TrackTrail}>
+                    <Track className="track" />
+                </animated.span>
             </Bar>
 
             <Tabs>
                 {
-                    TabLinks.map(el => (
-                        <Tab key={el[0]} href={el[1]}>
-                            <Tfouteen>{el[0]}</Tfouteen>
-                        </Tab>
+                    Tagstrail.map(({ opacity, transform }, index) => (
+                        <animated.span key={index} style={{ opacity, transform }} >
+                            <SpanLink
+                                href={TabLinks[index][1]}
+                                className={isActive == index ? "activeLink" : ""}
+                                onClick={() => setIsactive(index)}
+                            >{TabLinks[index][0]}</SpanLink>
+                        </animated.span>
                     ))
                 }
-
             </Tabs>
 
         </Wrapper>

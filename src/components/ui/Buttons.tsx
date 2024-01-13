@@ -1,7 +1,9 @@
 import styled from "styled-components"
-import { IconCont, SpanFlexAcRow, TTitleTres } from "../Global"
+import { IconCont, SpanFlexAcRow,} from "../Global"
 import { softPink } from "../../utils/colors"
 import { Heart, Message, Star } from "../../assets"
+import { PortLigatText } from "."
+
 
 interface IBtnProps {
   num?: number
@@ -20,6 +22,9 @@ const ReactionBtn = styled(SpanFlexAcRow)`
     font-size: 11px !important;
   }
   
+`
+const BtnTitle = styled(PortLigatText)`
+  font-size: 24px;
 `
 
 const LikeBtn = styled(ReactionBtn)`
@@ -43,7 +48,7 @@ export const LikesBtn = ({ num = 124 }: IBtnProps) => {
   return (
     <LikeBtn>
       <IconCont src={Heart} />
-      <TTitleTres>{num}</TTitleTres>
+      <BtnTitle>{num}</BtnTitle>
     </LikeBtn>)
 }
 
@@ -53,7 +58,7 @@ export const StarBtn = ({ num = 124 }: IBtnProps) => {
   return (
     <Starbtn>
       <IconCont src={Star} style={{ width: 18 }} />
-      <TTitleTres>{num} </TTitleTres>
+      <BtnTitle>{num} </BtnTitle>
     </Starbtn>
   )
 }
@@ -62,7 +67,7 @@ export const ReviewsBtn = ({ num = 124 }: IBtnProps) => {
   return (
     <ReviewBtn>
       <IconCont src={Message} style={{ width: 18 }} />
-      <TTitleTres>{num}  Reviews</TTitleTres>
+      <BtnTitle>{num}  Reviews</BtnTitle>
     </ReviewBtn>
   )
 }

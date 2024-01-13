@@ -3,7 +3,8 @@ import { FlexCol, FlexRow } from "../../../../Global"
 import { FoodTag } from "./components/FoodTag"
 import { RestoNavTabs } from "./components/RestoNavTabs"
 import { Favorite } from "./components/Favorite"
-
+import { useTrail, animated, easings } from "@react-spring/web"
+import { useMediaQuery } from 'react-responsive'
 
 const Wrap = styled(FlexRow)`
   margin-top: 32px;
@@ -29,24 +30,47 @@ const TagsCont = styled(FlexCol)`
 
 const tags = ["Spicy", "Vegan", "Gluten Free", "Top Rated"]
 
+const tagsItems = tags.map(el => (
+  <FoodTag tag={el} key={el} />
+))
+
 export const InfosSections = () => {
+
+  const isMobile = useMediaQuery({ maxWidth: 906 })
+
+  const Tagstrail = useTrail(tagsItems.length, {
+    from: { opacity: 0, transform: isMobile ? "translateX(-20px)" : "translateY(20px)" },
+    to: { opacity: 1, transform: isMobile ? "translateX(0px)" : "translateY(0px)" },
+    delay: 800,
+    config:{
+      duration: 200,
+      delay: (d:number)=> d + 100,
+      easing: easings.easeOutSine,
+    },
+  })
+
   return (
     <Wrap >
       <LeftBar>
+
+
         <TagsCont>
           {
-            tags.map(el => (
-              <FoodTag tag={el} key={el} />
+            Tagstrail.map(({ opacity, transform }, index) => (
+              <animated.span key={index} style={{ opacity, transform }}>
+                {tagsItems[index]}
+              </animated.span>
             ))
           }
         </TagsCont>
 
-        <RestoNavTabs/>
+
+        <RestoNavTabs />
 
       </LeftBar>
 
       <CenterView>
-          <Favorite/>
+        <Favorite />
       </CenterView>
 
 

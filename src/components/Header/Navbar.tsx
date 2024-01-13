@@ -1,14 +1,17 @@
 import styled from "styled-components"
 import {
   FlexCol, FlexRow, FlexRowAc,
-  IconCont, Tsixteen, Ttiny, SpanFlexCol,
-   AvatarC, SpanFlexAcRow
+  IconCont, SpanFlexCol,
+  AvatarC, SpanFlexAcRow
 } from "../Global"
-import { AngleDown, BurgerMenu, Heart,
-   ProfileA, RestoLocation } from "../../assets"
+import {
+  AngleDown, BurgerMenu, Heart,
+  ProfileA, RestoLocation
+} from "../../assets"
 import { SearchBar } from "../ui/SearchBar"
+import { PortLigatText } from "../ui"
 
-
+import {  animated, useTrail } from '@react-spring/web';
 
 const Wrap = styled(FlexRow)`
   justify-content: space-between;
@@ -53,49 +56,107 @@ const ProfileImg = styled(AvatarC)`
 
 const UserSettings = styled(FlexCol)`
   cursor:pointer;
+  padding: 6px;
+  border-radius: 8px;
+  &:hover{
+    background: #00000025;
+  }
+  &:active{
+    scale: .8 ;
+    transition: 0.9s ease-out;
+  }
 `
 
 const SearcCont = styled(SpanFlexAcRow)`
 
 `
 
+const items = [
+  <Left>
+    <LinkIcon href="#">
+      <IconCont src={RestoLocation} />
+    </LinkIcon>
+    <LinkIcon href="#">
+      <IconCont src={BurgerMenu} />
+    </LinkIcon>
+
+  </Left>,
+  <Right>
+    <SearcCont>
+      <SearchBar />
+    </SearcCont>
+
+    <Circle>
+      <IconCont src={Heart} />
+    </Circle>
+    <ProfileImg src={ProfileA} />
+    <UserSettings>
+      <FlexRowAc style={{ gap: 4 }}>
+        <SpanFlexCol>
+          <PortLigatText size="10px">Welcome!</PortLigatText>
+          <PortLigatText size="16px">Emily Collins</PortLigatText>
+        </SpanFlexCol>
+        <IconCont src={AngleDown} />
+      </FlexRowAc>
+    </UserSettings>
+  </Right>
+
+]
 
 export const Navbar = () => {
 
 
 
+  // return (
+  //   <Wrap>
+  //     <Left>
+  //       <LinkIcon href="#">
+  //         <IconCont src={RestoLocation} />
+  //       </LinkIcon>
+  //       <LinkIcon href="#">
+  //         <IconCont src={BurgerMenu} />
+  //       </LinkIcon>
+
+  //     </Left>
+
+  //     <Right>
+  //       <SearcCont>
+  //         <SearchBar />
+  //         {/* <IconCont src={Search} /> */}
+  //       </SearcCont>
+
+  //       <Circle>
+  //         <IconCont src={Heart} />
+  //       </Circle>
+  //       <ProfileImg src={ProfileA} />
+  //       <UserSettings>
+  //         <FlexRowAc style={{ gap: 4 }}>
+  //           <SpanFlexCol>
+  //             <PortLigatText size="10px">Welcome!</PortLigatText>
+  //             <PortLigatText size="16px">Emily Collins</PortLigatText>
+  //           </SpanFlexCol>
+  //           <IconCont src={AngleDown} />
+  //         </FlexRowAc>
+  //       </UserSettings>
+  //     </Right>
+  //   </Wrap>
+  // )
+  const trail = useTrail(items.length, {
+    from: { opacity: 0, transform: 'translateY(20px)' },
+    to: { opacity: 1, transform: 'translateY(0)' },
+    config: {
+      duration: 300,
+      delay: (index:number)=> index * 100,
+    }
+  });
+
   return (
     <Wrap>
-      <Left>
-        <LinkIcon href="#">
-          <IconCont src={RestoLocation} />
-        </LinkIcon>
-        <LinkIcon href="#">
-          <IconCont src={BurgerMenu} />
-        </LinkIcon>
-
-      </Left>
-
-      <Right>
-        <SearcCont>
-          <SearchBar/>
-          {/* <IconCont src={Search} /> */}
-        </SearcCont>
-
-        <Circle>
-          <IconCont src={Heart} />
-        </Circle>
-        <ProfileImg src={ProfileA} />
-        <UserSettings>
-          <FlexRowAc style={{ gap: 4 }}>
-            <SpanFlexCol>
-              <Ttiny>Welcome!</Ttiny>
-              <Tsixteen>Emily Collins</Tsixteen>
-            </SpanFlexCol>
-            <IconCont src={AngleDown} />
-          </FlexRowAc>
-        </UserSettings>
-      </Right>
+      {trail.map(({ opacity, transform }, index) => (
+        <animated.div key={index} style={{ opacity, transform }}>
+          {items[index]}
+        </animated.div>
+      ))}
     </Wrap>
   )
 }

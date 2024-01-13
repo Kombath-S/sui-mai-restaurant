@@ -13,6 +13,9 @@ const SearchInput = styled(animated.input)`
     padding-left: 0px;
     translate: 36px 0;
 `
+const Icon = styled(IconCont)`
+    cursor:pointer;
+`
 
 export const SearchBar = () => {
 
@@ -53,9 +56,12 @@ export const SearchBar = () => {
     return (
         <>
             <animated.span >
-                <SearchInput style={props} value={searchText} onChange={(e) => setSearchText(e.target.value)} />
+                <SearchInput style={props} value={searchText} 
+                onChange={(e) => setSearchText(e.target.value)}
+                onEmptied={()=>handle()}
+                 />
             </animated.span>
-            <IconCont src={Search} onClick={handle} style={{ zIndex: 2 ,background: "#fff", borderRadius: "50%"}} />
+            <Icon src={Search} onClick={handle} style={{ zIndex: 2 ,background: "#fff", borderRadius: "50%"}} />
         </>
     )
 

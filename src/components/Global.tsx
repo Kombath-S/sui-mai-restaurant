@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { black, darkRed } from "../utils/colors";
+import { ReactNode } from "react";
 
 
 export const GlobalWrapper = styled.div`
@@ -11,48 +12,24 @@ export const GlobalWrapper = styled.div`
 //////////    FONT SIZEZ STYLE         
 ////////////////////////////////////
 
-export const Ttiny = styled.span`
-    font-size: 10px;
+interface IStyledProps {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    [key: string]: string | ReactNode | any; 
+}
+
+export const XText = styled.p<IStyledProps>`
+    font-size: ${(props) => props.size + " !important" || '10px'} ;
+    font-family:${(props) => props.family || 'serif'};
+    font-weight:${(props) => props.weight || 'auto'};
+    color: ${(props) => props.color || '#000'};
+    padding: ${(props) => props.padding || '0px'};
+`
+export const PortLigaText = styled(XText)`
     font-family: PortLligat;
 `
-export const TtinySec = styled(Ttiny)`
-    font-size: 11px;
-`
-export const TTextNorm = styled(Ttiny)`
-    font-size: 12px;
-`
-export const TtinyTres = styled(Ttiny)`
-    font-size: 16px;
-`
-export const TtinyQuat = styled(Ttiny)`
-    font-size: 20px;
-`
-
-export const Tfouteen = styled(Ttiny)`
-    font-size: 14px;
-`
-export const Tsixteen = styled(Ttiny)`
-    font-size: 16px;
-`
-export const Teigteen = styled(Ttiny)`
-    font-size: 18px;
-`
-
-
-export const TTitleOne = styled(Ttiny)`
-    font-size: 32px;
-    font-weight:bold;
-`
-export const TTitleSec = styled(Ttiny)`
-    font-size: 30px;
-`
-export const TTitleTres = styled(Ttiny)`
-    font-size: 24px;
-`
-export const TBlur = styled('span')`
+export const XTBlur = styled(XText)`
     opacity: 50%;
 `
-
 
 ////////////////////////////////////
 //////////    FONT SIZEZ STYLE LINK
@@ -62,7 +39,7 @@ export const TBlur = styled('span')`
 export const IsLink = styled.a`
 `
 
-export const NavCumbLink =  styled(IsLink)`
+export const NavCumbLink = styled(IsLink)`
     font-size: 12px;
     color: ${black} ;
     text-decoration-line:none;
