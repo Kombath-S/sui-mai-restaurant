@@ -2,7 +2,7 @@ name: React Build
 
 on:
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ]
     
 env:
   CI: false
@@ -34,7 +34,7 @@ jobs:
 
     - name: Build
       run: |
-        npm install
+        npm install vite
         npm run build
         
     - name: Setup Pages
@@ -43,7 +43,7 @@ jobs:
       uses: actions/upload-pages-artifact@v1
       with:
         # Upload build directory content
-        path: /dist/
+        path: sui-mai-restaurant/dist
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v1

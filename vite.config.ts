@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/sui-mai-restaurant/dist",
+  base: "/sui-mai-restaurant/",
   server: {
   },
   build: {
