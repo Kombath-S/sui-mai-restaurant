@@ -2,7 +2,7 @@ name: React Build
 
 on:
   pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
     
 env:
   CI: false
@@ -43,7 +43,7 @@ jobs:
       uses: actions/upload-pages-artifact@v1
       with:
         # Upload build directory content
-        path: 'dist/'
+        path: './sui-mai-restaurant/'
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v1
