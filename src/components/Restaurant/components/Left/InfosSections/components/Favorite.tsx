@@ -8,7 +8,7 @@ import {
 } from "../../../../../Global"
 import { ReviewsBtn, StarBtn } from "../../../../../ui/Buttons"
 import { softgreen } from "../../../../../../utils/colors"
-import { PortLigatText } from "../../../../../ui"
+import { BPoints, PortLigatText } from "../../../../../ui"
 import { useSpring, animated, easings, useTransition, } from "@react-spring/web"
 import { useState, } from "react"
 
@@ -16,9 +16,13 @@ import { useState, } from "react"
 const Wrappper = styled(FlexCol)`
     position:relative;
     flex: 1;
-    @media screen and (min-width:906px) {
+    @media screen and (min-width:${BPoints[1]}px) {
     margin-left: 24px;
   }
+  @media screen and (min-width:${BPoints[0]}px) and (max-width:${BPoints[1]}px) {
+    /* background: red; */
+  }
+  
 `
 
 
@@ -26,20 +30,22 @@ const MealCont = styled.div`
     position:relative;
     overflow:hidden;
     padding: 0px 20px;
-    /* background: blue; */
     display:flex;
-    @media screen and (max-width:906px) {
+    @media screen and (max-width:${BPoints[1]}px) {
         align-self:center;
         width: 100%;
         align-items:center;
     }
+    @media screen and (min-width:${BPoints[0]}px) and (max-width:${BPoints[1]}px) {
+    /* background: red; */
+    scale: .9;
+  }
 `
 
 const BackImgAnim = styled(animated.img)`
     left: 50%;
     right:50%;
     justify-self: center;
-    /* background: red; */
     margin: auto;
 `
 const MealImgAnim = styled(animated.img)`
@@ -82,7 +88,10 @@ const StepperCont = styled(FlexRowAc)`
     left: 50%;
     translate: -50% 0;
     bottom: -5%;
-    
+    @media screen and (min-width:${BPoints[0]}px) and (max-width:${BPoints[1]}px) {
+        bottom: 0%;
+    }
+
 `
 const Stepper = styled.span`
     width: 32px;

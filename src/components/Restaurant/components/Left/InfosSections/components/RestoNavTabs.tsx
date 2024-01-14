@@ -4,13 +4,16 @@ import { black, darkRed, softPink, } from "../../../../../../utils/colors"
 import { useMediaQuery } from "react-responsive"
 import { useTrail, animated, easings, useSpring, config } from "@react-spring/web";
 import { useState } from "react";
+import { BPoints } from "../../../../../ui";
 
 
 
 const Wrapper = styled(FlexRowAc)`
     gap: 20px;
     margin-top: 64px;
-    @media screen and (max-width:906px){
+    /* background: red; */
+    flex-direction: row !important;
+    @media screen and (max-width:${BPoints[0]}px){
         margin-top: 32px;
         margin-bottom: 24px;
     }
@@ -30,12 +33,13 @@ const Track = styled.span`
     height: 32px;
     content: "";
     background: red;
+    transition: unset !important;
 `
 
 const Tabs = styled(FlexCol)`
     gap: 20px;
 
-    @media screen and (max-width:906px) {
+    @media screen and (max-width:${BPoints[0]}px) {
     flex-direction:row;
     justify-content: space-evenly;
   }
@@ -67,7 +71,7 @@ const SpanLink = styled(IsLink)`
 `
 
 export const RestoNavTabs = () => {
-    const isMobile = useMediaQuery({ maxWidth: 906 })
+    const isMobile = useMediaQuery({ maxWidth: BPoints[0] })
 
     const Tagstrail = useTrail(TablinksItems.length, {
         from: { opacity: 0, transform: isMobile ? "translateX(40px)" : "translateY(20px)" },

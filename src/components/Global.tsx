@@ -43,6 +43,7 @@ export const NavCumbLink = styled(IsLink)`
     font-size: 12px;
     color: ${black} ;
     text-decoration-line:none;
+    cursor:pointer;
     &:hover{
         color: ${darkRed} ;
     }

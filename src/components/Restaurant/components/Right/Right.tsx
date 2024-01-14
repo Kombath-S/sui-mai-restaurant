@@ -1,20 +1,22 @@
 import styled from "styled-components"
 import { FlexCol } from "../../../Global"
 import { Illustration } from "../../../../assets"
-import { useTrail, a, easings, } from '@react-spring/web'
-import React, { ReactNode, useEffect, useState } from "react"
-import { PortLigatText } from "../../../ui"
+import {  easings, } from '@react-spring/web'
+import { BPoints, PortLigatText } from "../../../ui"
 import { useSpring, animated } from "@react-spring/web"
 
 const Wrap = styled(FlexCol)`
-    margin-top: 32px;
-    justify-content:start;
-    @media screen and (max-width:1206px){
-        margin-top: calc(-100px + 10vw);
-    }
+    min-height: 100%;
+    max-height: 100%;
+    gap: 12px;
+    position:relative;
 
-    @media screen and (max-width:906px){
+    @media screen and (max-width:${BPoints[0]}px){
+
+    }
+    @media screen and (max-width:${BPoints[0]}px){
         margin-top: 48px;
+        gap: 38px;
     }
     
 
@@ -23,42 +25,45 @@ const Wrap = styled(FlexCol)`
 
 const Imagec = styled.img`
     width: 100%;
+    max-height: 500px;
+    flex:1;
 `
 const TCont = styled.div`
+    margin-top:auto ;
 `
 
 
-const Trail: React.FC<{ open: boolean, children: ReactNode }> = ({ open, children }) => {
-    const items = React.Children.toArray(children)
-    const trail = useTrail(items.length, {
-        config: { mass: 50, tension: 2000, friction: 200 },
-        opacity: open ? 1 : 0,
-        x: open ? 0 : 20,
-        height: open ? 110 : 0,
-        from: { opacity: 0, x: 20, height: 0 },
-    })
-    return (
-        <div>
-            {trail.map(({ height, ...style }, index) => (
-                <a.div key={index} style={style}>
-                    <a.div style={{ height }}>{items[index]}</a.div>
-                </a.div>
-            ))}
-        </div>
-    )
-}
+// const Trail: React.FC<{ open: boolean, children: ReactNode }> = ({ open, children }) => {
+//     const items = React.Children.toArray(children)
+//     const trail = useTrail(items.length, {
+//         config: { mass: 50, tension: 2000, friction: 200 },
+//         opacity: open ? 1 : 0,
+//         x: open ? 0 : 20,
+//         height: open ? 110 : 0,
+//         from: { opacity: 0, x: 20, height: 0 },
+//     })
+//     return (
+//         <div>
+//             {trail.map(({ height, ...style }, index) => (
+//                 <a.div key={index} style={style}>
+//                     <a.div style={{ height }}>{items[index]}</a.div>
+//                 </a.div>
+//             ))}
+//         </div>
+//     )
+// }
 
 export const Right = () => {
-    const [open, toggle] = useState(false)
-    useEffect(() => {
-        setTimeout(() => {
-            toggle(true)
-        }, 1000);
-    }, [])
+    // const [open, toggle] = useState(false)
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         toggle(true)
+    //     }, 1000);
+    // }, [])
 
     const RightSpring = useSpring({
-        from: {  filter: "blur(30px)", },
-        to: {   filter: "blur(0px)", },
+        from: { filter: "blur(30px)", },
+        to: { filter: "blur(0px)", },
         duration: { transform: 300, filter: 6000 },
         delay: 1200,
         config: {
@@ -71,8 +76,10 @@ export const Right = () => {
             <animated.span style={RightSpring}>
                 <Imagec src={Illustration} />
             </animated.span>
-            <Trail open={open}>
-                <TCont>
+
+
+            <TCont>
+                {/* <Trail open={open} > */}
                     <PortLigatText size="20px">
                         Shumai is a type of
                         traditional Chinese dumpling.
@@ -88,8 +95,8 @@ export const Right = () => {
                         mutt            on, scallion and ginger. Hohhot shaomai
                     </PortLigatText>
 
-                </TCont>
-            </Trail>
+                {/* </Trail> */}
+            </TCont>
         </Wrap>
     )
 }

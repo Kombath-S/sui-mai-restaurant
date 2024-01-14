@@ -4,12 +4,17 @@ import { Header } from './components/Header';
 import GlobalStyle from './utils/GlobalStyle';
 import { softerPink } from './utils/colors';
 import { View } from './components/View';
+import { BPoints } from './components/ui';
 
 
 const Outer = styled.div`
+  position: relative;
   background: ${softerPink};
   max-width: 100vw;
-  /* overflow-x:hidden; */
+  @media screen and (min-width:${BPoints[0]}px) and (max-width:${BPoints[1]}px){
+      max-height: 100vh;
+      overflow: hidden !important;
+  }
 `
 
 const AppStyle = styled.div`

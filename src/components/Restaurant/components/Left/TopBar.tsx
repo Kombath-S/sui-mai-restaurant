@@ -8,14 +8,18 @@ import { ArrowRight, ProfileB, } from "../../../../assets"
 import { black, } from "../../../../utils/colors"
 import { LikesBtn, ReviewsBtn, StarBtn } from "../../../ui/Buttons"
 import { useSpring, animated, easings } from "@react-spring/web"
-import { PortLigatText } from "../../../ui"
-
+import { BPoints, PortLigatText } from "../../../ui"
+ 
 
 
 const FirstRow = styled(FlexRowAc)`
    justify-content: space-between;
     margin-bottom: 32px;
     margin-top: 32px;
+    @media screen and (max-width: ${BPoints[1]}px) and ( min-width:${BPoints[0]}px){
+      margin-top: 12px;
+      margin-bottom: 0px;
+    }
 `
 const SecRow = styled(FlexRowAc)`
    justify-content: space-between;

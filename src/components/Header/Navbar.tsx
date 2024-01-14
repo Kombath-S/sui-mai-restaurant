@@ -9,14 +9,17 @@ import {
   ProfileA, RestoLocation
 } from "../../assets"
 import { SearchBar } from "../ui/SearchBar"
-import { PortLigatText } from "../ui"
+import { BPoints, PortLigatText } from "../ui"
 
-import {  animated, useTrail } from '@react-spring/web';
+import { animated, useTrail } from '@react-spring/web';
 
 const Wrap = styled(FlexRow)`
   justify-content: space-between;
   margin-bottom: 18px;
-`
+  @media screen and (max-width: ${BPoints[1]}px) and ( min-width:${BPoints[0]}px){
+      margin-bottom: 8px
+    }
+` 
 const Left = styled(FlexRowAc)`
   gap: 24px;
 `
@@ -146,7 +149,7 @@ export const Navbar = () => {
     to: { opacity: 1, transform: 'translateY(0)' },
     config: {
       duration: 300,
-      delay: (index:number)=> index * 100,
+      delay: (index: number) => index * 100,
     }
   });
 
