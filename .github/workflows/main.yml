@@ -2,7 +2,7 @@ name: React Build
 
 on:
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ]
     
 env:
   CI: false
