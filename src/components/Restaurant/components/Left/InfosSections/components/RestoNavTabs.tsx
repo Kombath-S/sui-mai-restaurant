@@ -46,12 +46,12 @@ const Tab = styled(NavCumbLink)`
 `
 
 const TabLinks = [
-    ["Overview", "/#"],
-    ["Ingredients", "/#"],
-    ["Recipe", "/#"],
-    ["Nutition facts", "/#"],
-    ["Reviews", "/#"],
-    ["Similar", "/#"]
+    ["Overview", "./#"],
+    ["Ingredients", "./#"],
+    ["Recipe", "./#"],
+    ["Nutition facts", "./#"],
+    ["Reviews", "./#"],
+    ["Similar", "./#"]
 ]
 
 const TablinksItems = TabLinks.map(el => (

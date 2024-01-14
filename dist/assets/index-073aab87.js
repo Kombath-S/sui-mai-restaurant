@@ -230,7 +230,7 @@ Valid keys: `+JSON.stringify(Object.keys(R),null,"  "));var Oe=z(q,ie,G,ne,X+"."
   }
 `,Rw=A(ec)`
 
-`,qa=[["Overview","#"],["Ingredients","#"],["Recipe","#"],["Nutition facts","#"],["Reviews","#"],["Similar","#"]],jw=qa.map(e=>k.jsx(Rw,{href:e[1],children:k.jsx(Gn,{size:"14px",children:e[0]})},e[0])),Ow=A(om)`
+`,qa=[["Overview","/#"],["Ingredients","/#"],["Recipe","/#"],["Nutition facts","/#"],["Reviews","/#"],["Similar","/#"]],jw=qa.map(e=>k.jsx(Rw,{href:e[1],children:k.jsx(Gn,{size:"14px",children:e[0]})},e[0])),Ow=A(om)`
     color: ${ms};
     &.activeLink {
         color:${nm}
