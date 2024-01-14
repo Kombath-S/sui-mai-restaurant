@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/sui-mai-restaurant",
+  base: "/sui-mai-restaurant/",
   server: {
     // Configuration pour la gestion des fichiers statiques
     fs: {
@@ -13,7 +13,7 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: 'public',
+    outDir: 'dist',
     target: "modules"
   },
 })
