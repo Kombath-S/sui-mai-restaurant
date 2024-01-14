@@ -26,6 +26,8 @@ const MealCont = styled.div`
     position:relative;
     overflow:hidden;
     padding: 0px 20px;
+    /* background: blue; */
+    display:flex;
     @media screen and (max-width:906px) {
         align-self:center;
         width: 100%;
@@ -34,8 +36,11 @@ const MealCont = styled.div`
 `
 
 const BackImgAnim = styled(animated.img)`
-
-
+    left: 50%;
+    right:50%;
+    justify-self: center;
+    /* background: red; */
+    margin: auto;
 `
 const MealImgAnim = styled(animated.img)`
     position: absolute !important;
