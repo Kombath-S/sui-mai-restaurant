@@ -12,6 +12,7 @@ import { SearchBar } from "../ui/SearchBar"
 import { BPoints, PortLigatText } from "../ui"
 
 import { animated, useTrail } from '@react-spring/web';
+import { useMediaQuery } from "react-responsive"
 
 const Wrap = styled(FlexRow)`
   justify-content: space-between;
@@ -55,6 +56,7 @@ const Circle = styled(FlexRowAc)`
 
 const ProfileImg = styled(AvatarC)`
   cursor:pointer;
+  
 `
 
 const UserSettings = styled(FlexCol)`
@@ -67,6 +69,10 @@ const UserSettings = styled(FlexCol)`
   &:active{
     scale: .8 ;
     transition: 0.9s ease-out;
+  }
+  @media screen and (max-width: ${BPoints[0]}px) {
+    /* background: red; */
+    display:none;
   }
 `
 
@@ -108,6 +114,7 @@ const items = [
 
 export const Navbar = () => {
 
+  const isMobile = useMediaQuery({ maxWidth: BPoints[0] })
 
 
   // return (
@@ -152,6 +159,7 @@ export const Navbar = () => {
       delay: (index: number) => index * 100,
     }
   });
+
 
   return (
     <Wrap>
