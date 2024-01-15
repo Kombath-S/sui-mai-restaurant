@@ -11,12 +11,16 @@ import { BPoints } from "../../../../../ui";
 const Wrapper = styled(FlexRowAc)`
     gap: 20px;
     margin-top: 64px;
+    width: 100%;
     /* background: red; */
     flex-direction: row !important;
     @media screen and (max-width:${BPoints[0]}px){
         margin-top: 32px;
         margin-bottom: 24px;
+        justify-items:center;
+        text-align:center;
     }
+    
 `
 
 const Bar = styled('div')`
@@ -38,10 +42,20 @@ const Track = styled.span`
 
 const Tabs = styled(FlexCol)`
     gap: 20px;
+    @media screen and (max-width: ${BPoints[0] - 100}px){
+        width: 100%;
+        display: grid !important;
+        grid-template-columns: repeat(2,1fr); 
+        grid-template-rows: repeat(3, auto);
+    }
 
-    @media screen and (max-width:${BPoints[0]}px) {
+@media screen and (max-width:${BPoints[0]}px) {
     flex-direction:row;
     justify-content: space-evenly;
+    gap: 8px;
+  }
+  @media screen and (max-width: 300px) {
+
   }
 `
 
