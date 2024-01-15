@@ -6,7 +6,8 @@ import { BPoints } from "../../../../../ui"
 
 const Wrap = styled(SpanFlexAcRow)`
       cursor:pointer;
-
+      gap: 8px;
+      min-width:  120px;
       &:hover{
 
             .tagIcon{
@@ -15,14 +16,14 @@ const Wrap = styled(SpanFlexAcRow)`
             }
       }
       @media screen and (max-width: ${BPoints[0]}px) {
-            /* background: red !important; */
             flex-direction: column;
+            min-width: 80px;
       }
 `
 
 export const FoodTag = ({ tag }: { tag: string }) => {
       return (
-            <Wrap style={{ gap: 8, minWidth: 120 }}>
+            <Wrap style={{ }}>
                   {
                         (tag == "Spicy") && <IconCont className="tagIcon" src={Piment} />
 

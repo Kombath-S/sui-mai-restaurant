@@ -37,7 +37,7 @@ const TagsCont = styled(FlexCol)`
   gap:16px;
   @media screen and (max-width:${BPoints[0]}px) {
       flex-direction:row;
-      justify-content: space-evenly;
+      justify-content: space-between;
       gap: 0px;
   }
    @media screen and (min-width:${BPoints[0]}px) and (max-width:${BPoints[1]}px) {

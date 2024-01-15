@@ -12,7 +12,6 @@ import { SearchBar } from "../ui/SearchBar"
 import { BPoints, PortLigatText } from "../ui"
 
 import { animated, useTrail } from '@react-spring/web';
-import { useMediaQuery } from "react-responsive"
 
 const Wrap = styled(FlexRow)`
   justify-content: space-between;
@@ -114,7 +113,6 @@ const items = [
 
 export const Navbar = () => {
 
-  const isMobile = useMediaQuery({ maxWidth: BPoints[0] })
 
 
   // return (
