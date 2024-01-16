@@ -16,11 +16,13 @@ import { useState, } from "react"
 const Wrappper = styled(FlexCol)`
     position:relative;
     flex: 1;
+    width: 100%;
     @media screen and (min-width:${BPoints[1]}px) {
     margin-left: 24px;
   }
+  /* background: red; */
   @media screen and (min-width:${BPoints[0]}px) and (max-width:${BPoints[1]}px) {
-    /* background: red; */
+    /* background: blue; */
   }
   
 `
@@ -37,8 +39,7 @@ const MealCont = styled.div`
         align-items:center;
     }
     @media screen and (min-width:${BPoints[0]}px) and (max-width:${BPoints[1]}px) {
-    /* background: red; */
-    scale: .9;
+    flex:1;
   }
 `
 
@@ -47,6 +48,10 @@ const BackImgAnim = styled(animated.img)`
     right:50%;
     justify-self: center;
     margin: auto;
+    width: 100%;
+    @media screen and (max-width:${BPoints[0]}px) {
+    max-width: 400px;
+  }
 `
 const MealImgAnim = styled(animated.img)`
     position: absolute !important;
@@ -54,9 +59,14 @@ const MealImgAnim = styled(animated.img)`
     transform: translateY(-500px);
     left:50%;
     translate: -42% -10%;
-    width: min-content;
     height: unset;
+    width: 80%;
+    aspect-ratio:1/1;
     
+     @media screen and (max-width:${BPoints[0]}px) {
+    max-width: 400px;
+    max-height: 400px;
+    }
 `
 const BottomInfo = styled(FlexCol)`
     position:absolute !important;

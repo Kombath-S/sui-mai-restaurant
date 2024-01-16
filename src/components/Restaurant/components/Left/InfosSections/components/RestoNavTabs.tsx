@@ -9,7 +9,7 @@ import { BPoints } from "../../../../../ui";
 
 
 const Wrapper = styled(FlexRowAc)`
-    gap: 20px;
+    gap: 40px;
     margin-top: 64px;
     width: 100%;
     /* background: red; */
@@ -42,11 +42,16 @@ const Track = styled.span`
 
 const Tabs = styled(FlexCol)`
     gap: 20px;
-    @media screen and (max-width: ${BPoints[0] - 100}px){
+    /* background: blue; */
+    /* width: 100%; */
+    @media screen and (max-width: ${BPoints[0]}px){
         width: 100%;
         display: grid !important;
         grid-template-columns: repeat(2,1fr); 
         grid-template-rows: repeat(3, auto);
+
+    }
+    @media screen and (max-width: ${BPoints[0] - 200}px){
     }
 
 @media screen and (max-width:${BPoints[0]}px) {
@@ -80,7 +85,9 @@ const TablinksItems = TabLinks.map(el => (
 const SpanLink = styled(IsLink)`
     color: ${black};
     &.activeLink {
-        color:${darkRed}
+        color:${darkRed};
+        font-weight: bold;
+        text-decoration: underline;
     }
 `
 

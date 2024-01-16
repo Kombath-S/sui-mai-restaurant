@@ -19,12 +19,27 @@ const Wrap = styled(FlexRow)`
   @media screen and (max-width: ${BPoints[1]}px) and ( min-width:${BPoints[0]}px){
       margin-bottom: 8px
     }
-` 
+
+    .hide-on-mobile{
+      @media screen and (max-width: ${BPoints[0]}px){
+      display:none;
+    }
+    }
+`
 const Left = styled(FlexRowAc)`
   gap: 24px;
 `
 const Right = styled(FlexRowAc)`
   gap: 1rem;
+
+
+  #top-like{
+    
+  }
+`
+
+const Menu = styled.img`
+  cursor:pointer;
 `
 
 const LinkIcon = styled.a`
@@ -84,21 +99,19 @@ const items = [
     <LinkIcon href="#">
       <IconCont src={RestoLocation} />
     </LinkIcon>
-    <LinkIcon href="#">
-      <IconCont src={BurgerMenu} />
-    </LinkIcon>
+    <Menu src={BurgerMenu} id="menu-toggler"/>
 
   </Left>,
   <Right>
-    <SearcCont>
-      <SearchBar />
+    <SearcCont id="searchCont">
+      <SearchBar  />
     </SearcCont>
 
-    <Circle>
+    <Circle id="top-like" className="hide-on-mobile">
       <IconCont src={Heart} />
     </Circle>
-    <ProfileImg src={ProfileA} />
-    <UserSettings>
+    <ProfileImg src={ProfileA} id="profileImg" className="hide-on-mobile" />
+    <UserSettings id="userSettingsBtn">
       <FlexRowAc style={{ gap: 4 }}>
         <SpanFlexCol>
           <PortLigatText size="10px">Welcome!</PortLigatText>

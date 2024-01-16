@@ -12,7 +12,7 @@ const Outer = styled.div`
   background: ${softerPink};
   max-width: 100vw;
   @media screen and (min-width:${BPoints[0]}px) and (max-width:${BPoints[1]}px){
-      max-height: 100vh;
+      /* max-height: 100vh; */
       overflow: hidden !important;
   }
 `

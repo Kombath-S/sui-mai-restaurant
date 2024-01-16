@@ -10,6 +10,7 @@ const Wrap = styled(FlexCol)`
     max-height: 100%;
     gap: 12px;
     position:relative;
+    flex:1;
 
     @media screen and (max-width:${BPoints[0]}px){
 
