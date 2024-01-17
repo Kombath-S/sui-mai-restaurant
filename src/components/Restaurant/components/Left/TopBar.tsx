@@ -52,6 +52,9 @@ const DirectionBtn = styled(ReactionBtn)`
   background: ${black};
   gap: 18px;
   height: min-content;
+  *{
+    font-size: 16px !important;
+  }
   @media screen and (max-width: ${BPoints[0]}px) {
     scale: .8;
   }
