@@ -84,6 +84,7 @@ const TablinksItems = TabLinks.map(el => (
 ))
 const SpanLink = styled(IsLink)`
     color: ${black};
+    white-space: nowrap;
     &.activeLink {
         color:${darkRed};
         font-weight: bold;
