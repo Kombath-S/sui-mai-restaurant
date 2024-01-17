@@ -96,7 +96,7 @@ const SearcCont = styled(SpanFlexAcRow)`
 
 const items = [
   <Left>
-    <LinkIcon href="#">
+    <LinkIcon href="./#">
       <IconCont src={RestoLocation} />
     </LinkIcon>
     <Menu src={BurgerMenu} id="menu-toggler"/>
