@@ -1,3 +1,4 @@
 {
     "auto-close-tag.fullMode": true,
+    "vite.autoStart": false 
 }

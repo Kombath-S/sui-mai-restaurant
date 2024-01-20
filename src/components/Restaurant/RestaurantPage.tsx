@@ -6,6 +6,7 @@ import { BPoints } from "../ui"
 
 const Wrap = styled(FlexRow)`
   gap: 24px;
+  /* display: inline-flex; */
   @media screen and (max-width:${BPoints[0]}px) {
       flex-direction:column;
   }

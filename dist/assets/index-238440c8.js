@@ -189,7 +189,7 @@ Error generating stack: `+o.message+`
   }
 `,ww=M(Wn)`
 
-`,hd=[_.jsxs(dw,{children:[_.jsx(mw,{href:"#",children:_.jsx(We,{src:G1})}),_.jsx(hw,{src:V1,id:"menu-toggler"})]}),_.jsxs(pw,{children:[_.jsx(ww,{id:"searchCont",children:_.jsx(ow,{})}),_.jsx(vw,{id:"top-like",className:"hide-on-mobile",children:_.jsx(We,{src:Bm})}),_.jsx(gw,{src:q1,id:"profileImg",className:"hide-on-mobile"}),_.jsx(yw,{id:"userSettingsBtn",children:_.jsxs(It,{style:{gap:4},children:[_.jsxs(nc,{children:[_.jsx(Mr,{size:"10px",children:"Welcome!"}),_.jsx(Mr,{size:"16px",children:"Emily Collins"})]}),_.jsx(We,{src:B1})]})})]})],xw=()=>{const e=Zs(hd.length,{from:{opacity:0,transform:"translateY(20px)"},to:{opacity:1,transform:"translateY(0)"},config:{duration:300,delay:t=>t*100}});return _.jsx(fw,{children:e.map(({opacity:t,transform:n},r)=>_.jsx($e.div,{style:{opacity:t,transform:n},children:hd[r]},r))})},Sw=M(vt)`
+`,hd=[_.jsxs(dw,{children:[_.jsx(mw,{href:"./#",children:_.jsx(We,{src:G1})}),_.jsx(hw,{src:V1,id:"menu-toggler"})]}),_.jsxs(pw,{children:[_.jsx(ww,{id:"searchCont",children:_.jsx(ow,{})}),_.jsx(vw,{id:"top-like",className:"hide-on-mobile",children:_.jsx(We,{src:Bm})}),_.jsx(gw,{src:q1,id:"profileImg",className:"hide-on-mobile"}),_.jsx(yw,{id:"userSettingsBtn",children:_.jsxs(It,{style:{gap:4},children:[_.jsxs(nc,{children:[_.jsx(Mr,{size:"10px",children:"Welcome!"}),_.jsx(Mr,{size:"16px",children:"Emily Collins"})]}),_.jsx(We,{src:B1})]})})]})],xw=()=>{const e=Zs(hd.length,{from:{opacity:0,transform:"translateY(20px)"},to:{opacity:1,transform:"translateY(0)"},config:{duration:300,delay:t=>t*100}});return _.jsx(fw,{children:e.map(({opacity:t,transform:n},r)=>_.jsx($e.div,{style:{opacity:t,transform:n},children:hd[r]},r))})},Sw=M(vt)`
 `,kw=()=>_.jsxs(Sw,{children:[_.jsx(xw,{}),_.jsx(nw,{})]}),_w=wy`
   @font-face {
     font-family: 'PortLligat';
@@ -281,6 +281,7 @@ Valid keys: `+JSON.stringify(Object.keys(R),null,"  "));var Oe=N(J,oe,b,re,Z+"."
 
 `,Ja=[["Overview","./#"],["Ingredients","./#"],["Recipe","./#"],["Nutition facts","./#"],["Reviews","./#"],["Similar","./#"]],Iw=Ja.map(e=>_.jsx(Ow,{href:e[1],children:_.jsx(Gn,{size:"14px",children:e[0]})},e[0])),Mw=M(om)`
     color: ${ms};
+    white-space: nowrap;
     &.activeLink {
         color:${nm};
         font-weight: bold;
@@ -438,6 +439,9 @@ Valid keys: `+JSON.stringify(Object.keys(R),null,"  "));var Oe=N(J,oe,b,re,Z+"."
   background: ${ms};
   gap: 18px;
   height: min-content;
+  *{
+    font-size: 16px !important;
+  }
   @media screen and (max-width: ${X[0]}px) {
     scale: .8;
   }

@@ -11,9 +11,10 @@ const Outer = styled.div`
   position: relative;
   background: ${softerPink};
   max-width: 100vw;
-  @media screen and (min-width:${BPoints[0]}px) and (max-width:${BPoints[1]}px){
-      /* max-height: 100vh; */
-      overflow: hidden !important;
+  @media screen and (min-width:${BPoints[0]}px) and (max-width:${BPoints[2]}px){
+      max-height: 100vh;
+      overflow: hidden ;
+      /* background: red; */
   }
 `
 

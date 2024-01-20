@@ -17,11 +17,17 @@ import Illustration from "./images/illustration.png"
 import ProfileA from "./images/Profile1.png"
 import ProfileB from "./images/profile2.png"
 import MealBack from "./images/mealBack.svg"
+import Food3 from "./images/food (3).png"
+import Food4 from "./images/food (4).png"
+import Food5 from "./images/food (5).png"
 
 import LLigat from "./font/PortLligatSans-Regular.ttf"
 
-export  {
-    ArrowRight, BurgerMenu, AngleDown,AngleRight,Crown,Greenherb,
-    Heart,Message,NoGluten,Piment,RestoLocation,Search,Star,
-    ProfileA, ProfileB, Meal, Illustration, LLigat, MealBack
+export {
+    ArrowRight, BurgerMenu, AngleDown, AngleRight, Crown, Greenherb,
+    Heart, Message, NoGluten, Piment, RestoLocation, Search, Star,
+    ProfileA, ProfileB, Meal, Illustration, LLigat, MealBack,
+    Food3,
+    Food4,
+    Food5,
 }

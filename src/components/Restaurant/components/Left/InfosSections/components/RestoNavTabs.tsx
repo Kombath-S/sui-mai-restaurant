@@ -12,13 +12,16 @@ const Wrapper = styled(FlexRowAc)`
     gap: 40px;
     margin-top: 64px;
     width: 100%;
-    /* background: red; */
     flex-direction: row !important;
     @media screen and (max-width:${BPoints[0]}px){
         margin-top: 32px;
         margin-bottom: 24px;
         justify-items:center;
         text-align:center;
+    }
+    @media screen and (min-width:${BPoints[0]}px) and (max-width:${BPoints[1]}px){
+        margin-bottom: -100px;
+        margin-top: 32px;
     }
     
 `
@@ -42,8 +45,6 @@ const Track = styled.span`
 
 const Tabs = styled(FlexCol)`
     gap: 20px;
-    /* background: blue; */
-    /* width: 100%; */
     @media screen and (max-width: ${BPoints[0]}px){
         width: 100%;
         display: grid !important;

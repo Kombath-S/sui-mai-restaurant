@@ -9,7 +9,9 @@ interface IBtnProps {
   num?: number
 }
 
-const ReactionBtn = styled(SpanFlexAcRow)`
+const ReactionBtn = styled(SpanFlexAcRow).attrs({
+  className: "cbutton"
+})`
   cursor:pointer;
   padding: 4px 8px;
   border-radius:8px;

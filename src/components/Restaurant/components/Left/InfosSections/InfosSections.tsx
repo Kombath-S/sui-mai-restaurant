@@ -15,20 +15,19 @@ const Wrap = styled(FlexRow)`
   @media screen and (min-width:${BPoints[0]}px) and (max-width:${BPoints[1]}px) {
       margin-top: 12px;
   }
-  
-  
 `
 
 const LeftBar = styled(FlexCol)`
-/* background: red; */
+/* background: green; */
    @media screen and (min-width:${BPoints[0]}px) and (max-width:${BPoints[1]}px) {
      /* gap: 0px; */
   }
 
 `
 const CenterView = styled(FlexCol)`
-  /* background: blue; */
-   @media screen and (min-width:${BPoints[0]}px) and (max-width:${BPoints[1]}px) {
+  margin: 0 auto;
+  position:  relative;
+  @media screen and (min-width:${BPoints[0]}px) and (max-width:${BPoints[1]}px) {
     scale: .9;
     margin-top: -18px;
   }
